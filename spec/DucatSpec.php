@@ -10,7 +10,7 @@ class DucatSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith(5);
+        $this->beConstructedFromValue(5.0);
     }
 
     function it_is_initializable()
@@ -20,12 +20,12 @@ class DucatSpec extends ObjectBehavior
 
     function it_should_get_value()
     {
-        $this->value()->shouldReturn(5);
+        $this->value()->shouldReturn(5.0);
     }
 
-    function it_should_be_an_integer()
+    function it_should_be_a_float()
     {
-        $this->beConstructedWith('test');
+        $this->beConstructedFromValue(1);
         $this->shouldThrow(\InvalidArgumentException::class)->duringInstantiation();
     }
 }

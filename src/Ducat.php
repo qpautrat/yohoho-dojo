@@ -7,24 +7,29 @@ use Assert\Assertion as Assert;
 class Ducat
 {
     /**
-     * @var int
+     * @var float
      */
     private $value;
 
     /**
-     * @param int $value
+     * @param float $value
      */
-    public function __construct($value)
+    private function __construct($value)
     {
-        Assert::integer($value);
+        Assert::float($value);
 
-        $this->value = $value;
+        $this->value = round($value, 2);
+    }
+
+    public static function fromValue($value)
+    {
+        return new self($value);
     }
 
     /**
      * Get value.
      *
-     * @return int
+     * @return float
      */
     public function value()
     {
